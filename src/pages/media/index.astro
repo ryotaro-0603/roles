@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 import { getBlogs } from "../../library/microcms";
 const response = await getBlogs({ fields: ["id", "slug", "publishedAt", "title", "eyecatch", "url"] });
@@ -21,7 +22,7 @@ function formatDate(dateString: string): string {
           <li>
             <a href={content.slug}>
               <div class="mb-3">
-                <img src={content.eyecatch?.url} alt="" />
+                <Image src={content.eyecatch?.url} alt={content.title} />
               </div>
               <p class="text-sm font-medium text-neutral-500"><time data-time={content.publishedAt}>{formatDate(content.publishedAt)}</time></p>
               <h2 class="pt-1 text-lg font-medium">{content.title}</h2>
