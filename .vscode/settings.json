@@ -1,0 +1,27 @@
+{
+  "tailwindCSS.codeActions": true,
+  "tailwindCSS.colorDecorators": true,
+  "tailwindCSS.experimental.classRegex": [],
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[markdown]": {
+    "editor.formatOnSave": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "eslint.validate": [
+    "html",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "astro"
+  ],
+  "css.validate": false,
+  "scss.validate": false
+}
