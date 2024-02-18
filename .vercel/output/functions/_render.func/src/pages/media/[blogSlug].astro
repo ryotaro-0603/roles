@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getBlogs, getBlogDetail } from "../../library/microcms";
+
+// 詳細記事ページの全パスを取得
+export async function getStaticPaths() {
+  const response = await getBlogs({ fields: ["id", "slug"] });
+  return response.contents.map((content: any) => ({
+    params: {
+      blogSlug: content.slug,
+    },
+    props: {
+      blogId: content.id,
+    }
+  }));
+}
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = (date.getMonth() +1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  return `${year} / ${month} / ${day}`;
+}
+
+//記事の詳細情報を取得
+const { blogId } = Astro.props;
+const blog = await getBlogDetail(blogId as string);
+
+---
+
+<Layout title={blog.title} discription={blog.title}>
+  <div class="mx-auto max-w-[820px] pt-gutter-y">
+    <div>
+      <div class="aspect-thumbnail">
+        <img class="size-full" src={blog.eyecatch?.url}  />
+      </div>
+      <div class="mt-4 inline-grid grid-cols-2 gap-8 pl-0.5 md:mt-6">
+        <p class="text-sm text-neutral-500">公開：{formatDate(blog.publishedAt)}</p>
+        <p class="text-sm text-neutral-500">更新：{formatDate(blog.updatedAt)}</p>
+      </div>
+      <h1 class="mt-2 text-xl font-bold md:mt-3 md:text-3xl">{blog.title}</h1>
+    </div>
+    <div class="mt-10" set:html={blog.content}></div>
+  </div>
+</Layout>
+
+<style>
+  h2 {
+    font-weight: 700;
+  }
+</style>

@@ -11,5 +11,6 @@ export default defineConfig({
     locales: ["fr", "pt-br", "es"]
   },
   output: "server",
-  adapter: vercel()
+  adapter: vercel(),
+  compressHTML: false,
 });
