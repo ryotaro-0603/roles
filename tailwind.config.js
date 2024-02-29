@@ -14,11 +14,15 @@ export default {
 			'5xl': ['4rem', '4.5rem'],
 			'6xl': ['8rem', '8rem'],
 		},
+		// colors: {
+		// 	'primary': "#fafcfc",
+		// },
 		extend: {
 			fontFamily: {
         'primary': "'Montserrat', 'Noto Sans JP', monospace",
       },
       spacing: {
+        'gutter-x-0.5': 'max(1.25vw, 1rem)',
         'gutter-x': 'max(2.5vw, 1rem)',
         'gutter-y-0.5': 'max(1.25vw, 1rem)',
         'gutter-y': 'max(2.5vw, 2rem)',

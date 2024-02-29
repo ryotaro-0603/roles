@@ -1,38 +1,39 @@
 ---
-
 const { pathname } = Astro.url;
 ---
 
-<header class="sticky top-0 z-header flex items-center justify-between gap-gutter-x border-b border-neutral-200 bg-white px-gutter-x py-gutter-y-0.5">
-  <a class="block w-[80px] md:w-[100px]" href="/">
-    <img src="/logo/logo.svg" alt="Roles" width="120" height="29" decoding="async" />
-  </a>
+<div class="fixed top-5 w-full z-header">
+  <header class="w-full max-w-[820px] mx-auto flex items-center justify-between gap-gutter-x border border-neutral-200 bg-white px-gutter-x-0.5 py-4 rounded-xl">
+    <a class="block w-[60px] md:w-[80px]" href="/">
+      <img src="/logo/logo.svg" alt="Roles" width="120" height="29" decoding="async" />
+    </a>
 
-  <nav id="menu" class="absolute inset-x-0 top-full h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain px-gutter-x pb-gutter-y pt-gutter-y-0.5 transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto lg:p-0" aria-hidden="true" aria-label="Header menu">
-    <ul class="hidden gap-y-2 text-4xl font-medium text-black md:grid lg:flex lg:text-base lg:font-normal">
-      {
-        [
-          { label: 'Media', href: '/media/' }
-        ].map(({ label, href }) => {
-          const isCurrent =
-            href === '/' ? pathname === '/' : pathname.startsWith(href);
+    <nav id="menu" class="absolute inset-x-0 top-full h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain px-gutter-x pb-gutter-y pt-gutter-y-0.5 transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto lg:p-0" aria-hidden="true" aria-label="Header menu">
+      <ul class="hidden gap-y-2 text-4xl font-medium text-black md:grid lg:flex lg:text-base lg:font-normal">
+        {
+          [
+            { label: 'Media', href: '/media/' }
+          ].map(({ label, href }) => {
+            const isCurrent =
+              href === '/' ? pathname === '/' : pathname.startsWith(href);
 
-          return (
-            <li>
-              <a
-                href={href}
-                class:list={[
-                  'lg:flex lg:px-5 hover:text-neutral-500 transition-colors duration-100 ease-out gap-[0.5em]',
-                  isCurrent &&
-                    'text-neutral-500 lg:before:content-["["] lg:after:content-["]"]',
-                ]}
-              >
-                {label}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </nav>
-</header>
+            return (
+              <li>
+                <a
+                  href={href}
+                  class:list={[
+                    'lg:flex lg:px-5 hover:text-neutral-500 transition-colors duration-100 ease-out gap-[0.5em]',
+                    isCurrent &&
+                      'text-neutral-500 lg:before:content-["["] lg:after:content-["]"]',
+                  ]}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </header>
+</div>
