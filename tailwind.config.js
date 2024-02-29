@@ -29,8 +29,76 @@ export default {
       },
       aspectRatio: {
         'thumbnail': '1200 / 630',
+			},
+			typography: {
+        DEFAULT: {
+					css: {
+						fontSize: '1rem',
+						lineHeight: '1.75rem',
+            color: '#333',
+            a: {
+              color: '#cecece',
+              '&:hover': {
+                color: '#2c5282',
+              },
+						},
+						h2: {
+							fontSize: '1.14rem',
+							lineHeight: '1.75rem',
+							marginTop: 40,
+							marginBottom: 20,
+						},
+						h3: {
+							fontSize: '1rem',
+							lineHeight: '1.5rem',
+							marginTop: 40,
+							marginBottom: 20,
+						},
+						h4: {
+							marginTop: 40,
+							marginBottom: 20,
+						},
+						blockquote: {
+              fontWeight: '400',
+              fontStyle: 'normal',
+              color: 'var(--tw-prose-quotes)',
+              borderLeftWidth: '0.25rem',
+              borderLeftColor: 'var(--tw-prose-quote-borders)',
+              quotes: '"\\201C""\\201D""\\2018""\\2019"',
+            },
+						code: {
+							color: 'var(--tw-prose-code)',
+							backgroundColor: 'var(--tw-prose-code)',
+              fontWeight: '600',
+            },
+            'code::before': {
+              content: '"`"',
+            },
+            'code::after': {
+              content: '"`"',
+            },
+					},
+				},
+				md: {
+					css: {
+						fontSize: '1rem',
+						lineHeight: '1.75rem',
+						h2: {
+							fontSize: '1.6rem',
+							lineHeight: '2.25rem',
+							marginBottom: 20,
+						},
+						h3: {
+							fontSize: '1.33rem',
+							lineHeight: '2rem',
+							marginBottom: 20,
+						},
+					},
+				},
       },
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 }
