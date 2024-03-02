@@ -1,11 +1,13 @@
 ---
+import Logo from '../components/Logo.astro';
+
 const { pathname } = Astro.url;
 ---
 
 <div class="fixed top-5 w-full z-header px-gutter-x-0.5">
-  <header class="w-full max-w-[820px] mx-auto flex items-center justify-between gap-gutter-x shadow bg-neutral-100/50 px-gutter-x-0.5 py-4 rounded-xl backdrop-blur-lg">
+  <header class="w-full max-w-[400px] mx-auto flex items-center justify-between gap-gutter-x bg-neutral-200/50 px-gutter-x-0.5 py-4 rounded-2xl backdrop-blur-lg">
     <a class="block w-[60px] md:w-[80px]" href="/">
-      <img src="/logo/logo.svg" alt="Roles" width="120" height="29" decoding="async" />
+      <Logo />
     </a>
 
     <nav id="menu" class="absolute inset-x-0 top-full h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain px-gutter-x pb-gutter-y pt-gutter-y-0.5 transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto lg:p-0" aria-hidden="true" aria-label="Header menu">
@@ -22,9 +24,9 @@ const { pathname } = Astro.url;
                 <a
                   href={href}
                   class:list={[
-                    'lg:flex lg:px-5 hover:text-neutral-500 transition-colors duration-100 ease-out gap-[0.5em]',
+                    'relative lg:flex lg:px-5 hover:text-neutral-600 transition-colors duration-100 ease-out gap-[0.5em]',
                     isCurrent &&
-                      'text-neutral-500 lg:before:content-["["] lg:after:content-["]"]',
+                      'before:absolute before:w-full before:h-px before:top-[calc(50%-1px)] before:left-0 before:bg-neutral-600 text-neutral-600 before:content-[""]',
                   ]}
                 >
                   {label}
