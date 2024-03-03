@@ -1,4 +1,6 @@
 ---
+import Logo from '../components/Logo.astro';
+
 const nowTime = new Date();
 const nowYear = nowTime.getFullYear();
 
@@ -6,15 +8,10 @@ const nowYear = nowTime.getFullYear();
 
 <footer class="mt-gutter-x px-gutter-x">
   <div class="max-w-[820px] flex items-center justify-between gap-gutter-x mx-auto border-t border-neutral-200 py-gutter-y-0.5">
-    <a class="block w-[60px] opacity-50" href="/">
-      <img src="/logo/logo.svg" alt="Roles" width="120" height="29" decoding="async" />
+    <a class="block w-[60px]" href="/">
+      <Logo />
     </a>
   
-    <!-- <nav id="menu" class="absolute inset-x-0 top-full h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain px-gutter-x pb-gutter-y pt-gutter-y-0.5 transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto lg:p-0" aria-hidden="true" aria-label="Header menu">
-      <ul class="hidden gap-y-2 text-4xl font-medium text-black md:grid lg:flex lg:text-base lg:font-normal">
-  
-      </ul>
-    </nav> -->
     <p class="text-neutral-400 text-xs">{nowYear} © Roles</p>
   </div>
 </footer>
