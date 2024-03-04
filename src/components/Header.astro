@@ -4,14 +4,16 @@ const { pathname } = Astro.url;
 ---
 
 <div class="fixed top-gutter-x-0.5 md:top-5 w-full z-header px-gutter-x-0.5">
-  <header class="w-full max-w-[540px] mx-auto flex items-center justify-between gap-gutter-x border border-white/25 bg-neutral-100/50 px-gutter-x-0.5 py-4 rounded md:rounded-2xl backdrop-blur-lg">
-    <a class="block w-[60px] md:w-[80px]" href="/">
-      <Logo />
-    </a>
-    
-    <button id="menuBtn" class="w-[28px] cursor-pointer" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav" transition:animate="none" transition:persist="menu"></button>
+  <header class="w-full max-w-[540px] mx-auto border border-white/25 bg-neutral-100/50 px-gutter-x-0.5 py-4 rounded md:rounded-2xl backdrop-blur-lg">
+    <div class="flex items-center justify-between gap-gutter-x">
+      <a class="block w-[60px] md:w-[80px]" href="/">
+        <Logo />
+      </a>
+      
+      <button id="menuBtn" class="w-[28px] cursor-pointer" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav" transition:animate="none" transition:persist="menu"></button>
+    </div>
 
-    <!-- <nav id="menu" class="absolute inset-x-0 top-full h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain px-gutter-x pb-gutter-y pt-gutter-y-0.5 transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto lg:p-0" aria-hidden="true" aria-label="Header menu">
+    <nav id="menu" class="absolute inset-x-0 top-full h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain px-gutter-x py-gutter-y transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto lg:p-0" aria-hidden="true" aria-label="Header menu">
       <ul class="hidden gap-y-2 text-4xl font-medium text-black md:grid lg:flex lg:text-base lg:font-normal">
         {
           [
@@ -37,7 +39,7 @@ const { pathname } = Astro.url;
           })
         }
       </ul>
-    </nav> -->
+    </nav>
   </header>
 </div>
 
