@@ -49,31 +49,34 @@ const { pathname } = Astro.url;
 
   const target = document.getElementById('menuBtn');
 
-  const menuOptions = Lottie.loadAnimation({
-    container: target,
-    renderer: 'svg',
-    loop: false,
-    autoplay: false,
-    animationData: json,
-  });
+  if(target) {
+    
+      document.addEventListener('astro:page-load', () => {
+        const menuOptions = Lottie.loadAnimation({
+          container: target,
+          renderer: 'svg',
+          loop: false,
+          autoplay: false,
+          animationData: json,
+        });
 
-  // anim.setSpeed(2);
+      const anim = (menuOptions);
+      anim.setSpeed(2);
 
-  document.addEventListener('astro:page-load', () => {
-    const anim = (menuOptions);
-    anim.setSpeed(2);
+      target?.addEventListener('click', function(){
+        if(target.getAttribute('aria-expanded') === "true") {
+          target.setAttribute("aria-expanded", "false");
+          anim.setDirection(-1);
+          anim.play();
+        } else {
+          target.setAttribute("aria-expanded", "true");
+          anim.setDirection(1);
+          anim.play();
+        }
+      });
+    },{once: true});
 
-    target?.addEventListener('click', function(){
-      if(target.getAttribute('aria-expanded') === "true") {
-        target.setAttribute("aria-expanded", "false");
-        anim.setDirection(-1);
-        anim.play();
-      } else {
-        target.setAttribute("aria-expanded", "true");
-        anim.setDirection(1);
-        anim.play();
-      }
-    });
-  },{once: true});
+  }
+
 
 </script>
