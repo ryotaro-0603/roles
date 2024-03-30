@@ -1,26 +1,30 @@
 ---
 import Logo from '../components/Logo.astro';
+import Button from '../components/Button.astro';
 const { pathname } = Astro.url;
 ---
 
-<div class="fixed top-gutter-x-0.5 md:top-5 w-full z-header px-gutter-x-0.5">
-  <header class="w-full max-w-[540px] mx-auto border border-white/25 bg-neutral-100/50 px-gutter-x-0.5 py-4 rounded md:rounded-2xl backdrop-blur-lg">
+<div class="fixed top-gutter-x-0.5 z-header w-full px-gutter-x-0.5 md:top-5">
+  <header class="mx-auto w-full max-w-[540px] rounded border border-white/25 bg-neutral-100/50 px-5 py-4 backdrop-blur-lg md:rounded-2xl">
     <div class="flex items-center justify-between gap-gutter-x">
       <a class="block w-[60px] md:w-[80px]" href="/">
         <Logo />
       </a>
-      
+
       <button id="menuBtn" class="w-[28px] cursor-pointer" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav" transition:animate="none" transition:persist="menu"></button>
     </div>
 
-    <nav id="menu" class="absolute inset-x-0 top-full h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain px-gutter-x py-gutter-y transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto lg:p-0" aria-hidden="true" aria-label="Header menu">
-      <ul class="hidden gap-y-2 text-4xl font-medium text-black md:grid lg:flex lg:text-base lg:font-normal">
+    <nav
+      id="menu"
+      class="absolute inset-x-0 top-full mt-6 h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain border-t border-neutral-200 pt-6 transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto"
+      aria-hidden="true"
+      aria-label="Header menu"
+    >
+      <h4 class="font-bold">カテゴリーから探す</h4>
+      <ul class="mt-5 hidden gap-y-2 text-4xl font-medium text-black md:grid lg:flex lg:text-base lg:font-normal">
         {
-          [
-            { label: 'Media', href: '/media/' }
-          ].map(({ label, href }) => {
-            const isCurrent =
-              href === '/' ? pathname === '/' : pathname.startsWith(href);
+          [{ label: 'Media', href: '/media/' }].map(({ label, href }) => {
+            const isCurrent = href === '/' ? pathname === '/' : pathname.startsWith(href);
 
             return (
               <li>
@@ -28,8 +32,7 @@ const { pathname } = Astro.url;
                   href={href}
                   class:list={[
                     'relative lg:flex lg:px-5 hover:text-neutral-600 transition-colors duration-100 ease-out gap-[0.5em]',
-                    isCurrent &&
-                      'before:absolute before:w-full before:h-px before:top-[calc(50%-1px)] before:left-0 before:bg-neutral-600 text-neutral-600 before:content-[""]',
+                    isCurrent && 'before:absolute before:w-full before:h-px before:top-[calc(50%-1px)] before:left-0 before:bg-neutral-600 text-neutral-600 before:content-[""]',
                   ]}
                 >
                   {label}
@@ -39,6 +42,10 @@ const { pathname } = Astro.url;
           })
         }
       </ul>
+      <div class="flex justify-center gap-5">
+        <Button href="/media/">記事ページを見る</Button>
+        <Button href="/about/">このサイトについて</Button>
+      </div>
     </nav>
   </header>
 </div>
@@ -49,9 +56,10 @@ const { pathname } = Astro.url;
 
   const target = document.getElementById('menuBtn');
 
-  if(target) {
-    
-      document.addEventListener('astro:page-load', () => {
+  if (target) {
+    document.addEventListener(
+      'astro:page-load',
+      () => {
         const menuOptions = Lottie.loadAnimation({
           container: target,
           renderer: 'svg',
@@ -60,23 +68,22 @@ const { pathname } = Astro.url;
           animationData: json,
         });
 
-      const anim = (menuOptions);
-      anim.setSpeed(2);
+        const anim = menuOptions;
+        anim.setSpeed(3);
 
-      target?.addEventListener('click', function(){
-        if(target.getAttribute('aria-expanded') === "true") {
-          target.setAttribute("aria-expanded", "false");
-          anim.setDirection(-1);
-          anim.play();
-        } else {
-          target.setAttribute("aria-expanded", "true");
-          anim.setDirection(1);
-          anim.play();
-        }
-      });
-    },{once: true});
-
+        target?.addEventListener('click', function () {
+          if (target.getAttribute('aria-expanded') === 'true') {
+            target.setAttribute('aria-expanded', 'false');
+            anim.setDirection(-1);
+            anim.play();
+          } else {
+            target.setAttribute('aria-expanded', 'true');
+            anim.setDirection(1);
+            anim.play();
+          }
+        });
+      },
+      { once: true }
+    );
   }
-
-
 </script>

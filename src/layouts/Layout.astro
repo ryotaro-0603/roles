@@ -5,36 +5,37 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
-	title: string;
-	discription: string;
+  title: string;
+  discription: string;
 }
 
 const { title, discription } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="ja">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		
-		<meta name="description" content={discription} />
+<html lang="ja" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <meta name="description" content={discription} />
 
-		<ViewTransitions />
-	</head>
-	<body class="font-primary leading-normal text-neutral-900 bg-stone">
-		<Header />
-		<main class="w-full min-h-svh pt-20 px-gutter-x" transition:animate={fade({ duration: '0.2s' })}>
-			<slot/>
-		</main>
-		<Footer />
-	</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <ViewTransitions />
+  </head>
+  <body class="box-border flex min-h-full flex-col font-primary leading-normal text-neutral-900 dark:bg-slate-900">
+    <Header />
+    <main class="w-full shrink-0 px-gutter-x pt-20" transition:animate={fade({ duration: '0.2s' })}>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>

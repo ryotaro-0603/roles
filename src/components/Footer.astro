@@ -3,15 +3,14 @@ import Logo from '../components/Logo.astro';
 
 const nowTime = new Date();
 const nowYear = nowTime.getFullYear();
-
 ---
 
-<footer class="mt-gutter-x px-gutter-x">
-  <div class="max-w-[820px] flex items-center justify-between gap-gutter-x mx-auto border-t border-neutral-200 py-gutter-y-0.5">
+<footer class="mt-auto px-gutter-x">
+  <div class="mx-auto flex max-w-[820px] items-center justify-between gap-gutter-x border-t border-neutral-200 py-gutter-y-0.5">
     <a class="block w-[60px]" href="/">
       <Logo />
     </a>
-  
-    <p class="text-neutral-400 text-xs">{nowYear} © Roles</p>
+
+    <p class="text-xs text-neutral-400">{nowYear} © Roles</p>
   </div>
 </footer>
