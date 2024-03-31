@@ -1,11 +1,20 @@
 ---
+import ArrowRight from '../icons/ArrowRight.astro';
 interface Props {
   href: string;
+  arrow?: boolean;
 }
 
-const { href } = Astro.props;
+const { href, arrow } = Astro.props;
 ---
 
-<a href={href} class="inline-block min-w-[220px] rounded-full border-2 border-neutral-900 bg-neutral-900 px-1 py-3 text-sm text-neutral-100 transition-colors duration-300 ease-out hover:bg-neutral-50 hover:text-neutral-900">
-  <slot />
+<a
+  href={href}
+  class="group grid w-[240px] grid-cols-[1fr,auto] rounded-full border-2 border-neutral-900 bg-neutral-800 py-1 pl-6 pr-1 text-sm text-neutral-100 transition-colors duration-300 ease-out hover:bg-neutral-50
+hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900 focus-visible:outline-none"
+>
+  <span class="grid items-center"><slot /></span>
+  <span class="grid size-[36px] place-content-center overflow-hidden rounded-full border-2 border-neutral-900 bg-neutral-50">
+    <ArrowRight width={20} height={20} />
+  </span>
 </a>

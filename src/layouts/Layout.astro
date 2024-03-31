@@ -2,6 +2,7 @@
 import { ViewTransitions } from 'astro:transitions';
 import { fade } from 'astro:transitions';
 import Header from '../components/Header.astro';
+import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -31,11 +32,12 @@ const { title, discription } = Astro.props;
 
     <ViewTransitions />
   </head>
-  <body class="box-border flex min-h-full flex-col font-primary leading-normal text-neutral-900 dark:bg-slate-900">
+  <body class="box-border flex min-h-full flex-col font-primary leading-normal text-neutral-800 dark:bg-slate-900">
     <Header />
     <main class="w-full shrink-0 px-gutter-x pt-20" transition:animate={fade({ duration: '0.2s' })}>
       <slot />
     </main>
+    <Contact />
     <Footer />
   </body>
 </html>

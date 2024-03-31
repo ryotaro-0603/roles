@@ -5,13 +5,20 @@ const { pathname } = Astro.url;
 ---
 
 <div class="fixed top-gutter-x-0.5 z-header w-full px-gutter-x-0.5 md:top-5">
-  <header class="mx-auto w-full max-w-[540px] rounded border border-white/25 bg-neutral-100/50 px-5 py-4 backdrop-blur-lg md:rounded-2xl">
+  <header class="mx-auto w-full max-w-[560px] rounded border border-white/25 bg-neutral-100/50 px-5 py-4 backdrop-blur-lg md:rounded-2xl">
     <div class="flex items-center justify-between gap-gutter-x">
-      <a class="block w-[60px] md:w-[80px]" href="/">
+      <a class="block w-[80px]" href="/" aria-label="TOPページへ戻る">
         <Logo />
       </a>
 
-      <button id="menuBtn" class="w-[28px] cursor-pointer" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav" transition:animate="none" transition:persist="menu"></button>
+      <button
+        id="menuBtn"
+        class="w-[28px] cursor-pointer"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="nav"
+        transition:animate="none"
+        transition:persist="menu"></button>
     </div>
 
     <nav
@@ -32,7 +39,8 @@ const { pathname } = Astro.url;
                   href={href}
                   class:list={[
                     'relative lg:flex lg:px-5 hover:text-neutral-600 transition-colors duration-100 ease-out gap-[0.5em]',
-                    isCurrent && 'before:absolute before:w-full before:h-px before:top-[calc(50%-1px)] before:left-0 before:bg-neutral-600 text-neutral-600 before:content-[""]',
+                    isCurrent &&
+                      'before:absolute before:w-full before:h-px before:top-[calc(50%-1px)] before:left-0 before:bg-neutral-600 text-neutral-600 before:content-[""]',
                   ]}
                 >
                   {label}
@@ -42,8 +50,8 @@ const { pathname } = Astro.url;
           })
         }
       </ul>
-      <div class="flex justify-center gap-5">
-        <Button href="/media/">記事ページを見る</Button>
+      <div class="flex flex-col justify-center gap-5 sm:flex-row">
+        <Button href="/media/">記事ページ一覧を見る</Button>
         <Button href="/about/">このサイトについて</Button>
       </div>
     </nav>
