@@ -30,7 +30,11 @@ const { pathname } = Astro.url;
       <h4 class="font-bold">カテゴリーから探す</h4>
       <ul class="mt-5 hidden gap-y-2 text-4xl font-medium text-black md:grid lg:flex lg:text-base lg:font-normal">
         {
-          [{ label: 'Media', href: '/media/' }].map(({ label, href }) => {
+          [
+            { label: 'Figma', href: '/figma/' },
+            { label: 'CSS', href: '/css/' },
+            { label: 'HTML', href: '/html/' },
+          ].map(({ label, href }) => {
             const isCurrent = href === '/' ? pathname === '/' : pathname.startsWith(href);
 
             return (

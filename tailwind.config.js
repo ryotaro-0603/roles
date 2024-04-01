@@ -12,7 +12,7 @@ export default {
       '3xl': ['2rem', '2.5rem'],
       '4xl': ['2.67rem', '3.25rem'],
       '5xl': ['4rem', '4.5rem'],
-      '6xl': ['8rem', '8rem'],
+      '6xl': ['8rem', '10rem'],
     },
     // colors: {
     // 	'primary': "#fafcfc",
@@ -35,7 +35,13 @@ export default {
         thumbnail: '1200 / 630',
       },
       keyframes: {
-        marquee: {
+        slide: {
+          '0%': { transform: 'translateX(0)', opacity: 1 },
+          '48%': { transform: 'translateX(100%)', opacity: 0 },
+          '52%': { transform: 'translateX(-100%)', opacity: 0 },
+          '100%': { transform: 'translateX(0)', opacity: 1 },
+        },
+        diagonal: {
           '0%': { transform: 'translateX(0)', opacity: 1 },
           '48%': { transform: 'translateX(100%)', opacity: 0 },
           '52%': { transform: 'translateX(-100%)', opacity: 0 },
