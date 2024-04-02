@@ -42,11 +42,20 @@ export default {
           '100%': { transform: 'translateX(0)', opacity: 1 },
         },
         diagonal: {
-          '0%': { transform: 'translateX(0)', opacity: 1 },
-          '48%': { transform: 'translateX(100%)', opacity: 0 },
-          '52%': { transform: 'translateX(-100%)', opacity: 0 },
-          '100%': { transform: 'translateX(0)', opacity: 1 },
+          '0%': { transform: 'translateX(0) translateY(0)', opacity: 1 },
+          '48%': {
+            transform: 'translateX(100%) translateY(-100%)',
+            opacity: 0,
+          },
+          '52%': {
+            transform: 'translateX(-100%) translateY(100%)',
+            opacity: 0,
+          },
+          '100%': { transform: 'translateX(0) translateY(0)', opacity: 1 },
         },
+      },
+      animation: {
+        diagonal: 'diagonal .6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
       },
       typography: {
         DEFAULT: {
