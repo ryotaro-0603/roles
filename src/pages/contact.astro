@@ -7,17 +7,13 @@ const response = await getBlogs({ fields: ['slug', 'title'] });
 ---
 
 <Layout title="Roles" discription="test">
-  <div class="mx-auto max-w-[820px]">
+  <div class="mx-auto mt-72 max-w-[820px]">
     <form action="https://ssgform.com/s/nRjJ34vBkiUj" aria-labelledby="form-title" id="sample-form" method="post">
       <input class="bg-slate-200" type="text" name="お名前" required="required" />
       <input class="bg-slate-200" type="email" name="メールアドレス" required="required" />
       <textarea class="bg-slate-200" name="お問い合わせ内容" required="required"></textarea>
-      <div class="submit">
-        <div>
-          <button class="g-recaptcha" data-sitekey="reCAPTCHA_6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP" data-callback="onSubmit" data-action="submit"
-            >Submit</button
-          >
-        </div>
+      <div>
+        <button type="submit">Submit</button>
       </div>
     </form>
   </div>
