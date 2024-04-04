@@ -42,13 +42,16 @@ export default {
           '100%': { transform: 'translateX(0)', opacity: 1 },
         },
         diagonal: {
-          '0%': { transform: 'translateX(0) translateY(0)', opacity: 1 },
+          '0%': {
+            transform: 'translateX(0) translateY(0) scale(1.05)',
+            opacity: 1,
+          },
           '48%': {
-            transform: 'translateX(100%) translateY(-100%)',
+            transform: 'translateX(80%) translateY(-80%) scale(1)',
             opacity: 0,
           },
           '52%': {
-            transform: 'translateX(-100%) translateY(100%)',
+            transform: 'translateX(-80%) translateY(80%)',
             opacity: 0,
           },
           '100%': { transform: 'translateX(0) translateY(0)', opacity: 1 },
