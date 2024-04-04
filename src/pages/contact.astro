@@ -13,17 +13,15 @@ const response = await getBlogs({ fields: ['slug', 'title'] });
       <input class="bg-slate-200" type="email" name="メールアドレス" required="required" />
       <textarea class="bg-slate-200" name="お問い合わせ内容" required="required"></textarea>
       <div>
-        <button type="submit">Submit</button>
+        <button class="g-recaptcha" data-sitekey="6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP" data-callback="onSubmit" data-action="submit">送信する</button>
       </div>
     </form>
   </div>
 </Layout>
 
-<!-- <script>
-  function onSubmit(token) {
-    var form = document.getElementById('sample-form');
-    if (form.reportValidity()) {
-      form.submit();
-    }
+<script>
+  function onSubmit(t) {
+    const n = document.getElementById('sample-form');
+    n && n.reportValidity() && n.submit();
   }
-</script> -->
+</script>
