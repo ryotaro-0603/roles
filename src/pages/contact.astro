@@ -19,9 +19,12 @@ const response = await getBlogs({ fields: ['slug', 'title'] });
   </div>
 </Layout>
 
+<script src="https://www.google.com/recaptcha/api.js?render=6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP"></script>
 <script>
-  function onSubmit(t) {
-    const n = document.getElementById('sample-form');
-    n && n.reportValidity() && n.submit();
-  }
+  grecaptcha.ready(function () {
+    grecaptcha.execute('6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP', { action: 'submit' }).then(function (token) {
+      var recaptchaResponse = document.getElementById('recaptchaResponse');
+      recaptchaResponse.value = token;
+    });
+  });
 </script>
