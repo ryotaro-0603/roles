@@ -20,11 +20,4 @@ const response = await getBlogs({ fields: ['slug', 'title'] });
 </Layout>
 
 <script src="https://www.google.com/recaptcha/api.js?render=6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP"></script>
-<script>
-  grecaptcha.ready(function () {
-    grecaptcha.execute('6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP', { action: 'submit' }).then(function (token) {
-      var recaptchaResponse = document.getElementById('recaptchaResponse');
-      recaptchaResponse.value = token;
-    });
-  });
-</script>
+<script src="../scripts/recaptcha.js"></script>
