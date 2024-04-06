@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
 <Layout title="Roles" discription="test">
   <div class="mx-auto mt-72 max-w-[820px]">
     <form action="https://ssgform.com/s/nRjJ34vBkiUj" aria-labelledby="form-title" id="sample-form" method="post">
@@ -9,8 +11,13 @@ import Layout from '../layouts/Layout.astro';
       <input class="bg-slate-200" type="email" name="メールアドレス" required="required" />
       <textarea class="bg-slate-200" name="お問い合わせ内容" required="required"></textarea>
       <div>
-        <button data-action="submit">送信する</button>
+        <button class="g-recaptcha" data-sitekey="6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP" data-callback="onSubmit" data-action="submit">送信する</button>
       </div>
     </form>
   </div>
 </Layout>
+
+<script>
+  import onSubmit from '../scripts/recaptcha';
+  onSubmit();
+</script>

@@ -5,7 +5,7 @@ interface Props {
   arrow?: boolean;
 }
 
-const { href, arrow } = Astro.props;
+const { href, arrow = false } = Astro.props;
 ---
 
 <a
