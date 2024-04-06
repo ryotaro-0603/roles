@@ -1,9 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
-
-import { getBlogs } from '../library/microcms';
-const response = await getBlogs({ fields: ['slug', 'title'] });
 ---
 
 <Layout title="Roles" discription="test">
@@ -17,7 +13,6 @@ const response = await getBlogs({ fields: ['slug', 'title'] });
       </div>
     </form>
   </div>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP"></script>
+  <script src="../scripts/recaptcha.js"></script>
 </Layout>
-
-<script src="https://www.google.com/recaptcha/api.js?render=6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP"></script>
-<script src="../scripts/recaptcha.js"></script>
