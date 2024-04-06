@@ -9,14 +9,8 @@ import Layout from '../layouts/Layout.astro';
       <input class="bg-slate-200" type="email" name="メールアドレス" required="required" />
       <textarea class="bg-slate-200" name="お問い合わせ内容" required="required"></textarea>
       <div>
-        <button class="g-recaptcha" data-sitekey="6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP" data-callback="onSubmit" data-action="submit">送信する</button>
+        <button data-action="submit">送信する</button>
       </div>
     </form>
   </div>
 </Layout>
-
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-  import onSubmit from '../scripts/recaptcha';
-  onSubmit();
-</script>
