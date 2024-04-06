@@ -13,6 +13,10 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </form>
   </div>
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP"></script>
-  <script src="../scripts/recaptcha.js"></script>
 </Layout>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LdM3K0pAAAAAMckqS0ih-0CfwKRsJgxnliY4uBP"></script>
+<script>
+  import onSubmit from '../scripts/recaptcha';
+  onSubmit();
+</script>
