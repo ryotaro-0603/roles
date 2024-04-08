@@ -14,3 +14,11 @@ import Layout from '../layouts/Layout.astro';
     </form>
   </div>
 </Layout>
+
+<script is:inline src="https://www.google.com/recaptcha/api.js" defer="defer"></script>
+<script>
+  function onSubmit(t) {
+    const n = document.getElementById('js-contact-form');
+    n && n.reportValidity() && n.submit();
+  }
+</script>
