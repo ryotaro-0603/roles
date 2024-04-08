@@ -39,5 +39,15 @@ const { title, discription } = Astro.props;
     </main>
     <ContactWire />
     <Footer />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+      function onSubmit() {
+        const form = document.getElementById('contact');
+        if (form && form.reportValidity()) {
+          form.submit();
+        }
+      }
+    </script>
   </body>
 </html>
