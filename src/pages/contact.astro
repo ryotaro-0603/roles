@@ -13,13 +13,15 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </form>
   </div>
-</Layout>
 
-<script>
-  function onSubmit(token: string | undefined): void {
-    const form: HTMLFormElement | null = document.getElementById('contact-form') as HTMLFormElement | null;
-    if (form?.reportValidity()) {
-      form.submit();
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+
+  <script>
+    function onSubmit(token: string | undefined): void {
+      const form: HTMLFormElement | null = document.getElementById('contact-form') as HTMLFormElement | null;
+      if (form?.reportValidity()) {
+        form.submit();
+      }
     }
-  }
-</script>
+  </script>
+</Layout>
