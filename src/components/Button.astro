@@ -5,7 +5,7 @@ interface Props {
   arrow?: boolean;
 }
 
-const { href, arrow = false } = Astro.props;
+const { href, arrow = true } = Astro.props;
 ---
 
 <a
@@ -14,7 +14,13 @@ const { href, arrow = false } = Astro.props;
 hover:text-neutral-900 focus-visible:bg-neutral-50 focus-visible:text-neutral-900 focus-visible:outline-none"
 >
   <span class="grid items-center"><slot /></span>
-  <span class="grid size-[36px] place-content-center overflow-hidden rounded-full border-2 border-neutral-900 bg-neutral-50">
-    <ArrowRight width={20} height={20} />
-  </span>
+  {
+    arrow ? (
+      <span class="grid size-[36px] place-content-center overflow-hidden rounded-full border-2 border-neutral-900 bg-neutral-50">
+        <ArrowRight width={20} height={20} />
+      </span>
+    ) : (
+      <span />
+    )
+  }
 </a>

@@ -2,8 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<script src="https://www.google.com/recaptcha/api.js"></script>
-
 <Layout title="Roles" discription="test">
   <div class="mx-auto mt-72 max-w-[820px]">
     <form action="https://ssgform.com/s/nRjJ34vBkiUj" aria-labelledby="form-title" id="sample-form" method="post">
@@ -17,7 +15,13 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </Layout>
 
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
 <script>
-  import onSubmit from '../scripts/recaptcha';
-  onSubmit();
+  function onSubmit(token: string | undefined): void {
+    const form: HTMLFormElement | null = document.getElementById('contact-form') as HTMLFormElement | null;
+    if (form?.reportValidity()) {
+      form.submit();
+    }
+  }
 </script>
