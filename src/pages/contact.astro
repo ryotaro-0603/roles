@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script is:inline src="https://www.google.com/recaptcha/api.js" defer="defer"></script>
-<script>
+<script is:inline>
   function onSubmit(t) {
     const n = document.getElementById('js-contact-form');
     n && n.reportValidity() && n.submit();
