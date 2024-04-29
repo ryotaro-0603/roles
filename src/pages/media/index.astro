@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 
 import { getBlogs } from '../../library/microcms';
-const response = await getBlogs({ fields: ['id', 'slug', 'publishedAt', 'title', 'eyecatch', 'url'] });
+const response = await getBlogs({ fields: ['id', 'slug', 'publishedAt', 'title', 'eyecatch', 'url', 'category', 'titleEn'] });
 
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
@@ -21,7 +21,7 @@ function formatDate(dateString: string): string {
           <li>
             <a class="row-span-3 grid grid-rows-subgrid" href={content.slug}>
               <div class="mb-3">
-                <img src={content.eyecatch?.url} alt={content.title} width="1200" height="630" transition:name={content.title} />
+                <img src={content.eyecatch?.url} alt={content.title} width="1200" height="630" transition:name={content.titleEn} />
               </div>
               <p class="text-sm font-medium text-neutral-500">
                 <time data-time={content.publishedAt}>{formatDate(content.publishedAt)}</time>

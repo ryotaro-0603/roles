@@ -1,10 +1,10 @@
 //SDK利用準備
-import { createClient } from "microcms-js-sdk";
+import { createClient } from 'microcms-js-sdk';
 import type {
   MicroCMSQueries,
   MicroCMSImage,
   MicroCMSDate,
-} from "microcms-js-sdk";
+} from 'microcms-js-sdk';
 
 const client = createClient({
   serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
@@ -19,9 +19,10 @@ export type Blog = {
   publishedAt: string;
   revisedAt: string;
   title: string;
-  slug: string,
+  slug: string;
   content: string;
   eyecatch?: MicroCMSImage;
+  titleEn: string;
 } & MicroCMSDate;
 
 export type BlogResponse = {
@@ -33,14 +34,14 @@ export type BlogResponse = {
 
 //APIの呼び出し
 export const getBlogs = async (queries?: MicroCMSQueries) => {
-  return await client.get<BlogResponse>({ endpoint: "blogs", queries });
+  return await client.get<BlogResponse>({ endpoint: 'blogs', queries });
 };
 export const getBlogDetail = async (
   contentId: string,
-  queries?: MicroCMSQueries
+  queries?: MicroCMSQueries,
 ) => {
   return await client.getListDetail<Blog>({
-    endpoint: "blogs",
+    endpoint: 'blogs',
     contentId,
     queries,
   });
