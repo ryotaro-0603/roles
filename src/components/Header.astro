@@ -4,64 +4,60 @@ import Button from '../components/Button.astro';
 const { pathname } = Astro.url;
 ---
 
-<div class="pointer-events-none fixed top-gutter-x-0.5 z-header w-full px-gutter-x-0.5 md:top-5">
-  <header
-    class="pointer-events-auto mx-auto w-full max-w-[560px] rounded border border-neutral-300/25 bg-neutral-100/50 px-5 py-4 backdrop-blur-lg md:rounded-2xl"
+<header class="pointer-events-auto fixed z-header mx-auto w-full border-b border-neutral-100 px-gutter-y py-4 backdrop-blur-lg">
+  <div class="flex items-center justify-between gap-gutter-x">
+    <a class="block w-[80px]" href="/" aria-label="TOPページへ戻る">
+      <Logo />
+    </a>
+
+    <button
+      id="menuBtn"
+      class="w-[28px] cursor-pointer md:w-[32px]"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+      aria-controls="nav"
+      transition:animate="none"
+      transition:persist="menu"></button>
+  </div>
+
+  <nav
+    id="menu"
+    class="absolute inset-x-0 top-full mt-6 hidden h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain border-t border-neutral-200 pt-6 transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto"
+    aria-hidden="true"
+    aria-label="Header menu"
   >
-    <div class="flex items-center justify-between gap-gutter-x">
-      <a class="block w-[80px]" href="/" aria-label="TOPページへ戻る">
-        <Logo />
-      </a>
+    <h4 class="font-bold">カテゴリーから探す</h4>
+    <ul class="mt-3 hidden gap-x-4 gap-y-2 text-4xl font-medium text-black md:flex lg:text-base lg:font-normal">
+      {
+        [
+          { label: 'Figma', href: '/figma/', className: 'bg-[#f24e1e]' },
+          { label: 'CSS', href: '/css/', className: 'bg-[#35c1f1]' },
+          { label: 'HTML', href: '/html/', className: 'bg-[#1da1f2]' },
+        ].map(({ label, href, className }) => {
+          const isCurrent = href === '/' ? pathname === '/' : pathname.startsWith(href);
 
-      <button
-        id="menuBtn"
-        class="w-[28px] cursor-pointer"
-        aria-label="メニューを開く"
-        aria-expanded="false"
-        aria-controls="nav"
-        transition:animate="none"
-        transition:persist="menu"></button>
+          return (
+            <li>
+              <a
+                href={href}
+                class:list={[
+                  'relative flex gap-2 items-center bg-white/75 border border-neutral-300 rounded lg:py-1 lg:px-4 hover:text-neutral-600 transition-colors duration-100 ease-out gap-[0.5em]',
+                ]}
+              >
+                <span class:list={['rounded size-4 pr-2', className]} />
+                {label}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+    <div class="mt-6 flex flex-col justify-center gap-5 sm:flex-row">
+      <Button href="/media/">記事ページ一覧を見る</Button>
+      <Button href="/about/">このサイトについて</Button>
     </div>
-
-    <nav
-      id="menu"
-      class="absolute inset-x-0 top-full mt-6 hidden h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain border-t border-neutral-200 pt-6 transition-opacity duration-100 ease-out lg:visible lg:relative lg:h-auto"
-      aria-hidden="true"
-      aria-label="Header menu"
-    >
-      <h4 class="font-bold">カテゴリーから探す</h4>
-      <ul class="mt-3 hidden gap-x-4 gap-y-2 text-4xl font-medium text-black md:flex lg:text-base lg:font-normal">
-        {
-          [
-            { label: 'Figma', href: '/figma/', className: 'bg-[#f24e1e]' },
-            { label: 'CSS', href: '/css/', className: 'bg-[#35c1f1]' },
-            { label: 'HTML', href: '/html/', className: 'bg-[#1da1f2]' },
-          ].map(({ label, href, className }) => {
-            const isCurrent = href === '/' ? pathname === '/' : pathname.startsWith(href);
-
-            return (
-              <li>
-                <a
-                  href={href}
-                  class:list={[
-                    'relative flex gap-2 items-center bg-white/75 border border-neutral-300 rounded lg:py-1 lg:px-4 hover:text-neutral-600 transition-colors duration-100 ease-out gap-[0.5em]',
-                  ]}
-                >
-                  <span class:list={['rounded size-4 pr-2', className]} />
-                  {label}
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-      <div class="mt-6 flex flex-col justify-center gap-5 sm:flex-row">
-        <Button href="/media/">記事ページ一覧を見る</Button>
-        <Button href="/about/">このサイトについて</Button>
-      </div>
-    </nav>
-  </header>
-</div>
+  </nav>
+</header>
 
 <script>
   import Lottie from 'lottie-web';
