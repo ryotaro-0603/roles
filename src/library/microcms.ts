@@ -22,7 +22,6 @@ export type Blog = {
   slug: string;
   content: string;
   eyecatch?: MicroCMSImage;
-  titleEn: string;
 } & MicroCMSDate;
 
 export type BlogResponse = {
