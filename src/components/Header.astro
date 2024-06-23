@@ -4,8 +4,8 @@ import Button from '../components/Button.astro';
 const { pathname } = Astro.url;
 ---
 
-<header class="pointer-events-auto fixed z-header mx-auto w-full border-b border-neutral-100 px-gutter-y py-4 backdrop-blur-lg">
-  <div class="flex items-center justify-between gap-gutter-x">
+<header class="pointer-events-auto fixed z-header w-full px-gutter-x backdrop-blur-lg">
+  <div class="mx-auto flex max-w-[820px] items-center justify-between gap-gutter-x border-b border-neutral-200 py-4">
     <a class="block w-[80px]" href="/" aria-label="TOPページへ戻る">
       <Logo />
     </a>
