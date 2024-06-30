@@ -32,7 +32,7 @@ const blog = await getBlogDetail(blogId as string);
   <div class="mx-auto max-w-[820px] pt-gutter-y">
     <div>
       <div class="aspect-thumbnail">
-        <img class="size-full object-cover" src={blog.eyecatch?.url} />
+        <img class="size-full object-cover" src={blog.eyecatch?.url} transition:name={blog.slug} />
       </div>
       <div class="mt-4 inline-grid grid-cols-2 gap-8 pl-0.5 md:mt-6">
         <p class="text-sm text-neutral-500">
