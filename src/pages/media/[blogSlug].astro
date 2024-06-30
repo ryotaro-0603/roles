@@ -31,8 +31,8 @@ const blog = await getBlogDetail(blogId as string);
 <Layout title={blog.title} discription={blog.title}>
   <div class="mx-auto max-w-[820px] pt-gutter-y">
     <div>
-      <div class="aspect-thumbnail">
-        <img class="size-full object-cover" src={blog.eyecatch?.url} transition:name={blog.slug} />
+      <div class="aspect-thumbnail" transition:name={blog.slug}>
+        <img class="size-full object-cover" src={blog.eyecatch?.url} />
       </div>
       <div class="mt-4 inline-grid grid-cols-2 gap-8 pl-0.5 md:mt-6">
         <p class="text-sm text-neutral-500">
