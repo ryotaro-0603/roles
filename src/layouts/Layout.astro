@@ -27,12 +27,20 @@ const { title, discription } = Astro.props;
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
     <ViewTransitions />
   </head>
-  <body class="box-border flex min-h-full flex-col bg-white font-primary leading-normal text-neutral-800 dark:bg-slate-900">
+  <body
+    class="box-border flex min-h-full flex-col bg-white font-primary leading-normal text-neutral-800 dark:bg-slate-900"
+  >
     <Header />
     <main class="mb-10 w-full shrink-0 px-gutter-x pt-20">
       <slot />
