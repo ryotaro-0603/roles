@@ -22,7 +22,7 @@ function formatDate(dateString: string): string {
       {
         response.contents.map((content: any) => (
           <li>
-            <a class="row-span-3 grid grid-rows-subgrid" href={`/media/${content.slug}`}>
+            <a class="row-span-3 grid grid-rows-subgrid" href={content.slug}>
               <div class="mb-3">
                 <img src={content.eyecatch?.url} alt={content.title} width="1200" height="630" />
               </div>
