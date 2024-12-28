@@ -1,5 +1,5 @@
 ---
-// import { Image } from 'astro:assets';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 
 import { getBlogs } from '../library/microcms';
@@ -24,11 +24,8 @@ function formatDate(dateString: string): string {
         response.contents.map((content: any) => (
           <li>
             <a class="row-span-3 grid grid-rows-subgrid" href={`/media/${content.slug}`}>
-              {/* <div class="mb-3" transition:name={content.slug}>
+              <div class="mb-3" transition:name={content.slug}>
                 <Image src={content.eyecatch?.url} alt={content.title} width="1200" height="630" />
-              </div> */}
-              <div class="mb-3">
-                <img src={content.eyecatch?.url} alt={content.title} width="1200" height="630" />
               </div>
               <p class="text-sm font-medium text-neutral-500">
                 <time data-time={content.publishedAt}>{formatDate(content.publishedAt)}</time>
