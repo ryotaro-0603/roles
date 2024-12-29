@@ -1,3 +1,6 @@
+// tailwind.config.mjs
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -14,9 +17,6 @@ export default {
       '5xl': ['4rem', '4.5rem'],
       '6xl': ['8rem', '10rem'],
     },
-    // colors: {
-    // 	'primary': "#fafcfc",
-    // },
     extend: {
       fontFamily: {
         primary: "'Montserrat', 'Noto Sans JP', monospace",
@@ -128,5 +128,5 @@ export default {
       },
     },
   },
-  // plugins: [require('@tailwindcss/typography')],
+  plugins: [typography],
 };
